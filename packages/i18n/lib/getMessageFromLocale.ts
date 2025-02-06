@@ -4,6 +4,7 @@
  */
 import enMessage from '../locales/en/messages.json';
 import koMessage from '../locales/ko/messages.json';
+import zh_CNMessage from '../locales/zh_CN/messages.json';
 
 export function getMessageFromLocale(locale: string) {
   switch (locale) {
@@ -11,13 +12,15 @@ export function getMessageFromLocale(locale: string) {
       return enMessage;
     case 'ko':
       return koMessage;
+    case 'zh_CN':
+      return zh_CNMessage;
     default:
       throw new Error('Unsupported locale');
   }
 }
 
 export const defaultLocale = (() => {
-  const locales = ['en', 'ko'];
+  const locales = ['en', 'ko', 'zh_CN'];
   const firstLocale = locales[0];
   const defaultLocale = Intl.DateTimeFormat().resolvedOptions().locale.replace('-', '_');
   if (locales.includes(defaultLocale)) {

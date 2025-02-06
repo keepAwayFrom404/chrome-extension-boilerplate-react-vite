@@ -1,0 +1,30 @@
+{
+  "extensionDescription": {
+    "description": "跨境电商小助手",
+    "message": "辅助跨境电商日常运营的小工具插件"
+  },
+  "extensionName": {
+    "description": "Extension name",
+    "message": "跨境电商小助手"
+  },
+  "toggleTheme": {
+    "message": "Toggle theme"
+  },
+  "loading": {
+    "message": "Loading..."
+  },
+  "greeting": {
+    "description": "Greeting message",
+    "message": "Hello, My name is $NAME$",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "John Doe"
+      }
+    }
+  },
+  "hello": {
+    "description": "Placeholder example",
+    "message": "Hello $1"
+  }
+}

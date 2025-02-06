@@ -40,7 +40,15 @@ const manifest = withSidePanel({
   version: packageJson.version,
   description: '__MSG_extensionDescription__',
   host_permissions: ['<all_urls>'],
-  permissions: ['storage', 'scripting', 'tabs', 'notifications'],
+  permissions: [
+    'activeTab', // 当前激活标签
+    'downloads', // 插件触发下载
+    'storage',
+    'scripting', // 插件注入脚本
+    'tabs',
+    'notifications',
+    'contextMenus', // 鼠标右键
+  ],
   options_page: 'options/index.html',
   background: {
     service_worker: 'background.iife.js',
