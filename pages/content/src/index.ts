@@ -19,8 +19,10 @@ function findTargetImageUrls(): string[] {
     }
   }
   const result = [];
-  for (let item of secondEmptyDiv.children[0].children[0].children[0].children) {
-    result.push(item.children[0].dataset.src);
+  for (let item of secondEmptyDiv?.children?.[0]?.children) {
+    if (item.children[0].tagName === 'IMG') {
+      result.push(item.children[0].dataset.src);
+    }
   }
 
   return result;
