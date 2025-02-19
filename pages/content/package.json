@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "@extension/shared": "workspace:*",
-    "@extension/storage": "workspace:*"
+    "@extension/storage": "workspace:*",
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
     "@extension/hmr": "workspace:*",

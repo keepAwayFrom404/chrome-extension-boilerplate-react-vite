@@ -1,5 +1,5 @@
 // import { toggleTheme } from '@src/toggleTheme';
-
+import { get } from 'lodash-es';
 console.log('content script loaded');
 
 function findTargetImageUrls(): string[] {
@@ -12,15 +12,23 @@ function findTargetImageUrls(): string[] {
     const child = targetParent.children[i];
     if (child.tagName === 'DIV' && child.attributes.length === 0) {
       count++;
-      if (count === 2) {
+      const temp1 = get(child,'children.0.children.0.children.0.children')
+      if (temp1 || count === 2) {
         secondEmptyDiv = child;
         break;
       }
     }
   }
   const result = [];
-  for (let item of secondEmptyDiv.children[0].children[0].children[0].children) {
-    result.push(item.children[0].dataset.src);
+
+  // get(secondEmptyDiv, 'children.0.children.0.children.0.children')
+  // get(secondEmptyDiv, 'children.0.children')
+  // const temp = get(b, 'children.0.children.tagName') === 'IMG' ? b : a
+  console.log( get(secondEmptyDiv, 'children.0.children'), 'temp ===>');
+  for (let item of get(secondEmptyDiv, 'children.0.children')) {
+    if(item.children[0].tagName === 'IMG') {
+      result.push(item.children[0].dataset.src);
+    }
   }
 
   return result;
