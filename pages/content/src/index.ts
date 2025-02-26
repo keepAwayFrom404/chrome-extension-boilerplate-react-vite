@@ -20,8 +20,7 @@ function findTargetImageUrls(): string[] {
     }
   }
   const result = [];
-
-  const temp = get(secondEmptyDiv, 'children.0.children.0.children.0.children') || get(secondEmptyDiv, 'children.0.children') || []
+  const temp = get(secondEmptyDiv, 'children.0.children.0.children.0.children')?.length > 0 ? get(secondEmptyDiv, 'children.0.children.0.children.0.children'):  get(secondEmptyDiv, 'children.0.children')
   for (let item of (temp as Array<any>)) {
     if(item.children[0].tagName === 'IMG') {
       result.push(item.children[0].dataset.src);
